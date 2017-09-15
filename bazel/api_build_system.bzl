@@ -1,4 +1,4 @@
-load("@protobuf_bzl//:protobuf.bzl", "cc_proto_library", "py_proto_library")
+load("@com_google_protobuf//:protobuf.bzl", "cc_proto_library", "py_proto_library")
 
 def _CcSuffix(d):
     return d + "_cc"
@@ -16,7 +16,7 @@ def api_cc_proto_library(name, srcs = [], deps = [], has_services = 0):
         protoc = "//external:protoc",
         deps = [_CcSuffix(d) for d in deps] + [
             "@googleapis//:http_api_protos",
-            "@protobuf_bzl//:cc_wkt_protos",
+            "@com_google_protobuf//:cc_wkt_protos",
         ],
         visibility = ["//visibility:public"],
     )

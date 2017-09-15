@@ -5,7 +5,7 @@ def api_dependencies():
         commit = "5c6df0cd18c6a429eab739fb711c27f6e1393366",
         remote = "https://github.com/googleapis/googleapis.git",
         build_file_content = """
-load("@protobuf_bzl//:protobuf.bzl", "cc_proto_library", "py_proto_library")
+load("@com_google_protobuf//:protobuf.bzl", "cc_proto_library", "py_proto_library")
 
 filegroup(
     name = "http_api_protos_src",
@@ -25,7 +25,7 @@ cc_proto_library(
     default_runtime = "//external:protobuf",
     protoc = "//external:protoc",
     visibility = ["//visibility:public"],
-    deps = ["@protobuf_bzl//:cc_wkt_protos"],
+    deps = ["@com_google_protobuf//:cc_wkt_protos"],
 )
 
 py_proto_library(
